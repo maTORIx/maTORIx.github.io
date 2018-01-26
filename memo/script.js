@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
+  var memos = JSON.parse(localStorage.getItem("memos"))
+  if (memos === null) {
+    memos = []
+  }
   var app = new Vue({
     el: "#app",
     data: {
-      memos: [{"title": "test", "body": "testtesttest", "edit": false}],
+      memos: memos,
       form: {"title": "", "body": ""}
     },
     methods: {
@@ -15,8 +19,17 @@ document.addEventListener("DOMContentLoaded", function() {
         this.form = {"title": "", "body": ""}
       },
       destroy: function(memo) {
-        return
+        this.memos.splice(this.memos.indexOf(memo), 1);
       }
+    },
+    watch: {
+      memos: {
+        handler: function(newMemos, oldMemos){
+          console.log("saved")
+          localStorage.setItem("memos", JSON.stringify(newMemos))
+        }
+      },
+      deep: true
     }
   })
 })

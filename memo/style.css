@@ -1,0 +1,13 @@
+.card .card-header {
+  align-items: center;
+  text-align: center;
+}
+
+.card .card-header button {
+  float: right;
+  display: inline-block;
+}
+
+.card .card-header .header-text {
+  float: left;
+}
