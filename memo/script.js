@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
         handler: function(newMemos, oldMemos){
           console.log("saved")
           localStorage.setItem("memos", JSON.stringify(newMemos))
-        }
-      },
-      deep: true
+        },
+        deep: true
+      }
     }
   })
 })
