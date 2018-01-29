@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if(this.form.title == "" || this.form.body == "") {
           return
         }
-        this.memos.push({"title": this.form.title, "body": this.form.body, "edit": false})
+        this.memos.push({"title": this.form.title, "body": this.form.body, "edit": false, "show": true})
         this.form = {"title": "", "body": ""}
       },
       destroy: function(memo) {
