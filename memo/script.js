@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       destroy: function(memo) {
         this.memos.splice(this.memos.indexOf(memo), 1);
+      },
+      marked: function(text) {
+        return marked(text)
       }
     },
     watch: {
@@ -30,6 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         deep: true
       }
-    }
+    },
   })
 })

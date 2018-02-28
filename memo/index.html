@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>memo</title>
   <script src="script.js"></script>
+  <script src="node_modules/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -50,7 +51,7 @@
             </div>
             <div class="card-block" v-if="memo.show == true || memo.edit == true">
               <div v-if="memo.show">
-                <p style="white-space: pre-wrap">{{memo.body}}</p>
+                <p style="white-space: pre-wrap" v-html="marked(memo.body)"></p>
               </div>
               <div v-if="memo.edit">
                 <div class="form-group">
